@@ -1,0 +1,38 @@
+{% load static %}
+
+<nav class="navbar sticky-top navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img
+                src="{% static 'images/ITBANK.png' %}"
+                alt=""
+                width="60"
+                height="60"
+                class="d-inline-block align-text-top"
+            />
+        </a>
+        <form>
+            <button class="btn btn-sm btn-outline-git slight" type="button">
+                <a href="{% url 'home' %}"> Inicio </a>
+            </button>
+            <button class="btn btn-sm btn-outline-git slight" type="button">
+                <a href="/dolar/"> Cotizacion </a>
+            </button>
+            <button class="btn btn-sm btn-outline-git slight" type="button">
+                <a href="/dashboard/"> Dashboard </a>
+            </button>
+
+
+            <button class="btn btn-sm btn-outline-light" type="button">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+            {% else %}
+            <a href="{% url 'login' %}">Iniciar Sesión</a>
+            {% endif %}
+            </button>
+
+        </form>
+
+
+    </div>
+</nav>

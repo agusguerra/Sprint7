@@ -1,0 +1,99 @@
+
+<!doctype html>
+{% load static %}
+{% include 'navbar.html' %}
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'styles/home2.css' %}">
+
+    <link rel="stylesheet" href="/static/fonts/icomoon/style.css/">
+
+    <link rel="stylesheet" href="/static/styles/owl.carousel.min.css/">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static '/styles/prestamo_sacado.css' %}">
+
+    <title>Historial de Préstamos</title>
+
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <h1 class="mb-5">Has pedido un nuevo préstamo satisfactoriamente</h1>
+
+      <!-- INFORMACIÓN DEL PRÉSTAMO SACADO -->
+      <div class="container">
+        <table class="table custom-table">
+            <thead>
+              <tr>  
+                <th id="prestamo-title" scope="col">Total a pagar: </th>
+                <th id="prestamo-title" scope="col">En {{aux_date}} cuotas de:</th>
+                <th id="prestamo-title" scope="col">Interés: </th>                
+                <th id="prestamo-title" scope="col">Fecha de la última cuota: </th> 
+              </tr>
+            </thead>
+
+            <tbody>
+                <tr scope="row">
+                  <td id="prestamo">${{ lo_que_debo_pagar }}</td>
+                  <td id="prestamo"> ${{ cuota }}</td>
+                  <td id="prestamo">{{ interes_porcentaje }}%</td>
+                  <td id="prestamo">{{ fecha_pago_prestamo }}</td>
+                </tr>
+            </table>
+      </div>
+
+
+
+      <!-- INFORMACIÓN DEL PRÉSTAMOS ANTERIORES (HISTORIAL)-->
+      <div class="table-responsive custom-table-responsive">
+        
+        <table class="table custom-table">
+            
+            <br><br><br><br>
+            <h2 class="mb-5">Historial de mis Préstamos</h2>
+          <thead>
+            <tr>  
+              <th scope="col"></th>
+              <th scope="col">ID</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Tipo de Préstamo</th>
+              <th scope="col">Monto</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+
+          {% for i in listado_prestamos %}
+
+            <tr scope="row">
+              <th scope="row"></th>
+              <td>{{ i.loan_id }}</td>
+              <td>{{ i.loan_date }}</td>
+              <td>{{ i.loan_type }}</td>
+              <td>{{ i.loan_total }}</td>
+            </tr>
+            <tr class="spacer"><td colspan="100"></td></tr>
+
+          {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> 
+  </body>
+</html>

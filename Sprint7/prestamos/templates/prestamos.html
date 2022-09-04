@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Prestamos</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{% static '/styles/prestamos.css/' %}">
+  <link rel="stylesheet" href="{% static '/styles/home2.css'%}">
+  <link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+		crossorigin="anonymous"
+	/>
+</head>
+
+{% include 'navbar.html' %}
+
+<body>
+    <div class="login-wrap">
+        <form action="{% url 'nuevo-prestamo' %}" method="POST">
+            {% csrf_token %}
+            
+            <div class="login-html">
+
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">¡Pedí tu préstamo en segundos!</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Más información</label>
+                <!-- FORMULARIO -->
+
+                    <div class="login-form">
+                        <div class="sign-in-htm">                    
+                            <div class="group">
+                                <label for="user" class="label">Tipo de Préstamo
+
+                                    <select id="user" name="prestamo-tipo" class="form-control">
+                                        <option value="" selected disabled hidden>Elige una opción</option>
+                                        <option value="HIPOTECARIO">HIPOTECARIO</option>
+                                        <option value="PRENDARIO">PRENDARIO</option>
+                                        <option value="PERSONAL">PERSONAL</option>
+                                    </select>
+                                </label>
+                            </div>
+                            
+                            <br>
+
+                            <div class="group">
+                                <label id="label-pagar" for="pass" class="label">Plazo</label>
+                                
+                                <input name="prestamo-fecha" type="range" value="42" class="input" min="12" max="72" step="6" oninput="this.nextElementSibling.value = this.value + ' meses'">
+                                <output>42 meses</output>          
+                            </div>
+
+                            <br><br>
+                            <h6>Tu límite es de ${{limite_prestamo}}</h6>
+
+                            <div class="group">
+                                <label for="pass" class="label">Monto</label>
+                                <input name="prestamo-monto" id="pass" type="number" class="input" min="0" max="{{limite_prestamo}}">
+                            </div>
+                        
+
+                            <div class="group">
+                                <input id="check" type="checkbox" class="check">
+                                <label for="check"><span class="icon"></span>He leído y acepto los términos y condiciones.</label>
+                            </div>
+                            <br>
+                            <div class="group">
+                                <input type="submit" class="button" value="Contratar">
+                            </div>
+                        </div>
+                        <div class="sign-up-htm">
+                            <div class="group">
+                                <h4>Bienvenido a Préstamos ITBANK!</h4>
+                                <p>Tenemos tres tipos de préstamos para vos:</p>
+                                <ol>
+                                    <li>PERSONAL</li>
+                                    <li>PRENDARIO</li>
+                                    <li>HIPOTECARIO</li>
+                                </ol>
+                                
+                                <p>Nuestra Tasa de Interés Anual es del 50%, aplicable a los tres tipos de préstamos.</p>
+                                <p>El monto de pre-aprobación depende del tipo de cliente. A saber:</p>
+                                <ul>
+                                    <li>Cliente Classic: hasta $100.000</li>
+                                    <li>Cliente Gold: hasta $300.000</li>
+                                    <li>Cliente Black: hasta $500.000</li>
+                                </ul>
+
+                                <p>Puede elegir pagar el préstamo en un plazo de 72 meses!. Con un plazo mínimo de 12 meses e intérvalos de 6 meses.</p>
+                            </div>
+                        </div>        
+                    </div>
+            
+            </div>
+        </form>
+    </div>
+</body>

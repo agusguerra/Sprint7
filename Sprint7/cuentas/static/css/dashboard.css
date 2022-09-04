@@ -1,0 +1,61 @@
+#tarjeta{
+    background: linear-gradient(to right, rgb(76, 54, 158),rgb(31, 82, 168))
+}
+
+#caja-de-ahorro-text{
+    color: white;
+}
+
+#caja-de-ahorro-text-valor{
+    margin-top: 7%;
+    color: white;
+    font-size: 1.4rem;
+    float: right;
+}
+
+#numero-tarjeta-text{
+    margin-top: 25%;
+    color: white;
+    font-size: 1.1rem;
+}
+
+
+#img-visa{
+    float: right;
+   
+}
+
+#img-mastercard{
+    float: right;
+    width: 40px;
+}
+
+#img-amex{
+    float: right;
+    width: 40px;
+}
+
+#img-maestro{
+    float: right;
+    width: 40px;
+}
+
+#img-chip{
+    float: left;
+    width: 100px;
+    
+}
+
+#sidebar-item:hover{
+    background-color: rgb(67, 35, 156);
+    color: white;
+}
+#grafico{
+    margin-top: 0.8rem;
+}
+
+p{
+    float: center;
+    text-align: center;
+    font-size: 0.9rem;
+}

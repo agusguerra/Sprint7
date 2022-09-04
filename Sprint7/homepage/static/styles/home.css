@@ -1,0 +1,32 @@
+#carouselExampleCaptions{
+    align-items: center;
+}
+#nosotros{
+    justify-content: center;
+}
+.card{
+    margin: 0% 3% 6% 3%;
+    height: 12rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    height: 90%
+}
+
+.card-img-top{
+    max-width: 20%;
+    justify-self: center;
+}
+button{
+    color:white;
+    text-decoration: none;
+}
+button a{
+    text-decoration: none;
+    color: white;
+}
+
+#notebook{
+    width: 92%;
+}
+
